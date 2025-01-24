@@ -1,0 +1,68 @@
+# Pin assignments for HEX0 (7-segment display 0)
+set_location_assignment PIN_W17 -to seg0[0]
+set_location_assignment PIN_V18 -to seg0[1]
+set_location_assignment PIN_AG17 -to seg0[2]
+set_location_assignment PIN_AG16 -to seg0[3]
+set_location_assignment PIN_AH17 -to seg0[4]
+set_location_assignment PIN_AG18 -to seg0[5]
+set_location_assignment PIN_AH18 -to seg0[6]
+
+# Pin assignments for HEX1 (7-segment display 1)
+set_location_assignment PIN_AF16 -to seg1[0]
+set_location_assignment PIN_V16 -to seg1[1]
+set_location_assignment PIN_AE16 -to seg1[2]
+set_location_assignment PIN_AD17 -to seg1[3]
+set_location_assignment PIN_AE18 -to seg1[4]
+set_location_assignment PIN_AE17 -to seg1[5]
+set_location_assignment PIN_V17 -to seg1[6]
+
+# Pin assignments for HEX2 (7-segment display 2)
+set_location_assignment PIN_AA21 -to seg2[0]
+set_location_assignment PIN_AB17 -to seg2[1]
+set_location_assignment PIN_AA18 -to seg2[2]
+set_location_assignment PIN_Y17 -to seg2[3]
+set_location_assignment PIN_Y18 -to seg2[4]
+set_location_assignment PIN_AF18 -to seg2[5]
+set_location_assignment PIN_W16 -to seg2[6]
+
+# Pin assignments for HEX3 (7-segment display 3)
+set_location_assignment PIN_Y19 -to seg3[0]
+set_location_assignment PIN_W19 -to seg3[1]
+set_location_assignment PIN_AD19 -to seg3[2]
+set_location_assignment PIN_AA20 -to seg3[3]
+set_location_assignment PIN_AC20 -to seg3[4]
+set_location_assignment PIN_AA19 -to seg3[5]
+set_location_assignment PIN_AD20 -to seg3[6]
+
+# Pin assignments for HEX4 (7-segment display 4)
+set_location_assignment PIN_AD21 -to seg4[0]
+set_location_assignment PIN_AG22 -to seg4[1]
+set_location_assignment PIN_AE22 -to seg4[2]
+set_location_assignment PIN_AE23 -to seg4[3]
+set_location_assignment PIN_AG23 -to seg4[4]
+set_location_assignment PIN_AF23 -to seg4[5]
+set_location_assignment PIN_AH22 -to seg4[6]
+
+# Pin assignments for HEX5 (7-segment display 5)
+set_location_assignment PIN_AF21 -to seg5[0]
+set_location_assignment PIN_AG21 -to seg5[1]
+set_location_assignment PIN_AF20 -to seg5[2]
+set_location_assignment PIN_AG20 -to seg5[3]
+set_location_assignment PIN_AE19 -to seg5[4]
+set_location_assignment PIN_AF19 -to seg5[5]
+set_location_assignment PIN_AB21 -to seg5[6]
+
+# Pin assignments for Switches (SW[4:0])
+set_location_assignment PIN_AB30 -to sw[0]   # Switch SW0
+set_location_assignment PIN_Y27  -to sw[1]   # Switch SW1
+set_location_assignment PIN_AB28 -to sw[2]   # Switch SW2
+set_location_assignment PIN_AC30 -to sw[3]   # Switch SW3
+set_location_assignment PIN_W25  -to sw[4]   # Switch SW4
+set_location_assignment PIN_V25  -to sw[5]   # Switch SW5
+set_location_assignment PIN_AC28  -to sw[6]   # Switch SW6
+set_location_assignment PIN_AD30  -to sw[7]   # Switch SW7
+
+# Pin assignment for KEY3 (button)
+set_location_assignment PIN_AA15 -to key3    # Push-button KEY3
+
+set_location_assignment PIN_AF14 -to clk    # 50 MHz clock
