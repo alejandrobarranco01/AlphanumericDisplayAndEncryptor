@@ -61,8 +61,23 @@ set_location_assignment PIN_W25  -to sw[4]   # Switch SW4
 set_location_assignment PIN_V25  -to sw[5]   # Switch SW5
 set_location_assignment PIN_AC28  -to sw[6]   # Switch SW6
 set_location_assignment PIN_AD30  -to sw[7]   # Switch SW7
+set_location_assignment PIN_AC29  -to sw8   # Switch SW8
+set_location_assignment PIN_AA30  -to sw9   # Switch SW8
+
+set_location_assignment PIN_AA24  -to leds[0]   # LED0
+set_location_assignment PIN_AB23  -to leds[1]   # LED1
+set_location_assignment PIN_AC23  -to leds[2]   # LED2
+set_location_assignment PIN_AD24  -to leds[3]   # LED3
+set_location_assignment PIN_AG25  -to leds[4]   # LED4
+set_location_assignment PIN_AF25  -to leds[5]   # LED5
+set_location_assignment PIN_AE24  -to leds[6]   # LED6
+set_location_assignment PIN_AF24  -to leds[7]   # LED7
+
 
 # Pin assignment for KEY3 (button)
 set_location_assignment PIN_AA15 -to key3    # Push-button KEY3
+set_location_assignment PIN_AK4 -to key1    # Push-button KEY1
+set_location_assignment PIN_AJ4 -to key0    # Push-button KEY0
+
 
 set_location_assignment PIN_AF14 -to clk    # 50 MHz clock
