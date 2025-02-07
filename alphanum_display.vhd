@@ -37,7 +37,7 @@ ARCHITECTURE behavior OF alphanum_display IS
 	END COMPONENT;
 
 	-- Declare component for the seven segment decoder logic
-	COMPONENT seven_segment_decoder IS
+	COMPONENT ascii_to_seven_segment IS
 		PORT (
 			sw : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 			seg_out : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
@@ -86,7 +86,7 @@ BEGIN
 	);
 
 	-- Instantiate the seven segment decoder module
-	SEVEN_SEGMENT_DECODER_INSTANCE : seven_segment_decoder
+	ASCII_TO_SEVEN_SEGMENT_INSTANCE : ascii_to_seven_segment
 	PORT MAP(
 		sw => sw,
 		seg_out => seg_values
