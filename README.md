@@ -33,6 +33,23 @@ _System Demo #1: Changing Displays_
   - `button_logic`: Debounces button inputs (KEY0, KEY1, KEY3).
 - **FPGA Resources**: Utilizes switches, buttons, 7-segment displays, LEDs, and the 50 MHz system clock.
 
+## System Block Diagrams
+
+- **Overall System Block Diagram**  
+  <img src="/img/overall_system_block_diagram.jpg" alt="Overall System Block Diagram" width="80%" />
+
+- **Mode Selector Block Diagram**  
+  <img src="/img/mode_selector_block_diagram.jpg" alt="Mode Selector Block Diagram" width="80%" />
+
+- **View Mode System Block Diagram**  
+  <img src="/img/view_mode_system_block_diagram.jpg" alt="View Mode System Block Diagram" width="80%" />
+
+- **Modify Mode System Block Diagram**  
+  <img src="/img/modify_mode_system_block_diagram.jpg" alt="Modify Mode System Block Diagram" width="80%" />
+
+- **Encryption Mode System Block Diagram**  
+  <img src="/img/encryption_mode_system_block_diagram.jpg" alt="Encryption Mode System Block Diagram" width="80%" />
+
 ## Project Status
 
 ### **Implemented**
