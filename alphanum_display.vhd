@@ -14,12 +14,12 @@ ENTITY alphanum_display IS
 		key0 : IN STD_LOGIC;
 
 		clk : IN STD_LOGIC; -- Clock signal
-		seg0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0); -- HEX0
-		seg1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0); -- HEX1
-		seg2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0); -- HEX2
-		seg3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0); -- HEX3
-		seg4 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0); -- HEX4
-		seg5 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0); -- HEX5
+		seg0 : OUT STD_LOGIC_VECTOR(7 DOWNTO 0); -- HEX0
+		seg1 : OUT STD_LOGIC_VECTOR(7 DOWNTO 0); -- HEX1
+		seg2 : OUT STD_LOGIC_VECTOR(7 DOWNTO 0); -- HEX2
+		seg3 : OUT STD_LOGIC_VECTOR(7 DOWNTO 0); -- HEX3
+		seg4 : OUT STD_LOGIC_VECTOR(7 DOWNTO 0); -- HEX4
+		seg5 : OUT STD_LOGIC_VECTOR(7 DOWNTO 0); -- HEX5
 
 		leds : OUT STD_LOGIC_VECTOR(7 DOWNTO 0) -- Used to show shift amount
 	);
@@ -40,7 +40,7 @@ ARCHITECTURE behavior OF alphanum_display IS
 	COMPONENT ascii_to_seven_segment IS
 		PORT (
 			sw : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-			seg_out : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
+			seg_out : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
 		);
 	END COMPONENT;
 
@@ -67,11 +67,11 @@ ARCHITECTURE behavior OF alphanum_display IS
 	-- Custom type to hold an array of 6 values, each value is a 7-bit vector
 	--TYPE display_array_t IS ARRAY (0 TO 5) OF STD_LOGIC_VECTOR(6 DOWNTO 0);
 
-	CONSTANT OFF : STD_LOGIC_VECTOR(6 DOWNTO 0) := "1111111"; -- All segments off
+	CONSTANT OFF : STD_LOGIC_VECTOR(7 DOWNTO 0) := "11111111"; -- All segments off
 
 	-- Signals
 	SIGNAL display_index : INTEGER RANGE 0 TO 5 := 5; -- Index for the displays, initialized to HEX5
-	SIGNAL seg_values : STD_LOGIC_VECTOR(6 DOWNTO 0); -- Decoded 7-segment value
+	SIGNAL seg_values : STD_LOGIC_VECTOR(7 DOWNTO 0); -- Decoded 7-segment value
 	SIGNAL displays : display_array_t := (OTHERS => OFF); -- Array to store display values
 	SIGNAL button_press : STD_LOGIC; -- Signal to track button presses
 	SIGNAL flash_value : STD_LOGIC; -- Signal for the flashing output clock (2 Hz)
