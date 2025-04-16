@@ -1,4 +1,5 @@
 LIBRARY ieee;
+LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 
 ENTITY seven_segment_to_ascii IS
@@ -10,7 +11,7 @@ END seven_segment_to_ascii;
 
 ARCHITECTURE logic OF seven_segment_to_ascii IS
 BEGIN
-    PROCESS(seg_values)
+    PROCESS (seg_values)
         VARIABLE a : STD_LOGIC := seg_values(0);
         VARIABLE b : STD_LOGIC := seg_values(1);
         VARIABLE c : STD_LOGIC := seg_values(2);
