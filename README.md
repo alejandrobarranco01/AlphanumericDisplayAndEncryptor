@@ -1,6 +1,6 @@
 # Alphanumeric Display Modification and Encryption System
 
-This project is an **Alphanumeric Display Modification and Encryption System** implemented on the DE10-Standard FPGA development board. The system allows users to input, modify, and encrypt alphanumeric characters displayed across six seven-segment displays using VHDL. Key functionalities include mode switching, ASCII input via switches, Caesar Cipher encryption, and real-time display control.
+This project is an **Alphanumeric Display and Encryption System** implemented on the DE10-Standard FPGA development board. The system allows users to input, modify, encrypt, and decrypt alphanumeric characters displayed across six seven-segment displays using VHDL and Verilog. Key functionalities include mode switching, ASCII input via switches, Caesar Cipher encryption/decryption, and real-time display control.
 
 ## Demo (In development)
 
@@ -12,56 +12,79 @@ _System Demo #1: Changing Displays_
 
 ### **Core Functionality**
 
-- **Mode Control**:
-  - **View Mode (SW8=0)**: Static display of stored characters on HEX[5:0].
-  - **Modify Mode (SW8=1)**: Edit characters using 8-bit ASCII input via SW[7:0]. Cycle through displays using KEY3.
-  - **Flashing Indicator**: Active display flashes at 2 Hz in Modify Mode.
-- **Encryption (SW9=1)**:
-  - **Caesar Cipher**: Apply shifts to ASCII values with wrap-around logic.
-  - **Shift Control**: Increment shift value with KEY1, reset to 0 with KEY0. Current shift amount displayed on LEDs[7:0] in binary.
-- **Input/Output**:
-  - **ASCII Input**: SW[7:0] for 8-bit character entry.
-  - **Display Output**: Six 7-segment displays (HEX[5:0]) for alphanumeric output.
-  - **LED Feedback**: LEDs[7:0] show the active Caesar shift value.
+- **Four Operating Modes**:
+
+  - **View Mode (SW9=0, SW8=0)**: Static display of stored characters on HEX[5:0]
+  - **Modify Mode (SW9=0, SW8=1)**: Edit characters using 8-bit ASCII input via SW[7:0]
+    - Cycle through displays using KEY3
+    - Active display flashes at 2Hz for visual feedback
+  - **Encryption Mode (SW9=1, SW8=0)**: Shows Caesar-shifted characters
+  - **Decryption Mode (SW9=1, SW8=1)**: Shows reverse-shifted characters
+
+- **Caesar Cipher System**:
+  - Adjustable shift value (0-255) using KEY1 (increment) and KEY2 (decrement)
+  - Reset to 0 with KEY0
+  - Current shift amount displayed on LEDs[7:0] in binary
+  - Supports:
+    - Digits (0-9): Wraps within 0-9 range
+    - Uppercase letters (A-Z): Wraps within A-Z range
+    - Lowercase letters (a-z): Wraps within a-z range
 
 ### **Technical Implementation**
 
 - **VHDL Components**:
-  - `seven_segment_to_ascii`: Converts 8-bit ASCII to 7-segment patterns.
-  - `clock_divider`: Generates a 2 Hz clock for flashing displays in Modify Mode.
-  - `shift_counter`: Manages Caesar Cipher shift value and LED output.
-  - `button_logic`: Debounces button inputs (KEY0, KEY1, KEY3).
-- **FPGA Resources**: Utilizes switches, buttons, 7-segment displays, LEDs, and the 50 MHz system clock.
 
-## System Block Diagrams
+  - `ascii_to_seven_segment`: Converts 8-bit ASCII to 7-segment patterns
+  - `clock_divider`: Generates 2Hz clock for display flashing
+  - `shift_counter`: Manages Caesar shift value with button controls
+  - `button_logic`: Debounces button inputs (KEY0-3)
+  - `state_type_pkg`: Defines system modes (VIEW/MODIFY/ENCRYPT/DECRYPT)
 
-- **Overall System Block Diagram**  
-  <img src="/img/overall_system_block_diagram.jpg" alt="Overall System Block Diagram" width="80%" />
+- **Verilog Components**:
 
-- **Mode Selector Block Diagram**  
-  <img src="/img/mode_selector_block_diagram.jpg" alt="Mode Selector Block Diagram" width="80%" />
+  - `encrypt`: Applies Caesar shift to ASCII characters
+  - `decrypt`: Reverses Caesar shift on ASCII characters
 
-- **View Mode System Block Diagram**  
-  <img src="/img/view_mode_system_block_diagram.jpg" alt="View Mode System Block Diagram" width="80%" />
+- **FPGA Resources**:
+  - Inputs: SW[9:0] (mode/ASCII), KEY[3:0] (controls), 50MHz clock
+  - Outputs: HEX[5:0] (7-seg displays), LED[7:0] (shift value)
 
-- **Modify Mode System Block Diagram**  
-  <img src="/img/modify_mode_system_block_diagram.jpg" alt="Modify Mode System Block Diagram" width="80%" />
+## System Architecture
 
-- **Encryption Mode System Block Diagram**  
-  <img src="/img/encryption_mode_system_block_diagram.jpg" alt="Encryption Mode System Block Diagram" width="80%" />
+### **Overall System Diagrams**
 
-## Project Status
+- **High-Level System Block Diagram**  
+  <img src="/img/Overall System Block Diagram.png" alt="Complete System Block Diagram" width="80%" />
 
-### **Implemented**
+- **State Machine Diagram**  
+  <img src="/img/State Machine System Block Diagram.png" alt="State Transition Diagram" width="80%" />
 
-- Mode switching (View/Modify/Encryption).
-- ASCII-to-7-segment decoding for 0-9, A-Z, a-z.
-- Caesar Cipher shift counter with LED feedback.
-- Display cycling and flashing in Modify Mode.
+### **Mode-Specific Diagrams**
 
-### **In Progress**
+#### View Mode
 
-- **7-Segment-to-ASCII Conversion**: Resolving ambiguities (e.g., '5' vs '8' mappings).
-- **Encryption Logic**: Finalizing Caesar Cipher wrap-around for alphanumeric ranges.
-  - **Current Focus**: Implementing the encryption module to handle shifts for both numeric (0-9) and alphabetic (A-Z, a-z) characters.
-- **State Stability**: Implementing finite state machines (FSMs) to prevent mode-switching errors.
+- **Functional Overview**  
+  <img src="/img/View Mode Functionality.jpg" alt="View Mode Functionality" width="80%" />
+- **Block Diagram**  
+  <img src="/img/View Mode System Block Diagram.png" alt="View Mode Architecture" width="80%" />
+
+#### Modify Mode
+
+- **Functional Overview**  
+  <img src="/img/Modify Mode Functionality.jpg" alt="Modify Mode Functionality" width="80%" />
+- **Block Diagram**  
+  <img src="/img/Modify Mode System Block Diagram.png" alt="Modify Mode Architecture" width="80%" />
+
+#### Encryption Mode
+
+- **Functional Overview**  
+  <img src="/img/Encryption Mode Functionality.jpg" alt="Encryption Mode Functionality" width="80%" />
+- **Block Diagram**  
+  <img src="/img/Encryption Mode System Block Diagram.png" alt="Encryption Mode Architecture" width="80%" />
+
+#### Decryption Mode
+
+- **Functional Overview**  
+  <img src="/img/Decryption Mode Functionality.jpg" alt="Decryption Mode Functionality" width="80%" />
+- **Block Diagram**  
+  <img src="/img/Decryption Mode System Block Diagram.png" alt="Decryption Mode Architecture" width="80%" />

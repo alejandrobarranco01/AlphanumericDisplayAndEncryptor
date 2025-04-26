@@ -76,6 +76,7 @@ set_location_assignment PIN_AF24  -to leds[7]   # LED7
 
 # Pin assignment for KEY3 (button)
 set_location_assignment PIN_AA15 -to key3    # Push-button KEY3
+set_location_assignment PIN_AA14 -to key2		# Push-button KEY2
 set_location_assignment PIN_AK4 -to key1    # Push-button KEY1
 set_location_assignment PIN_AJ4 -to key0    # Push-button KEY0
 

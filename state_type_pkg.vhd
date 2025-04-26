@@ -1,0 +1,6 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+PACKAGE state_type_pkg IS
+	TYPE state IS (VIEW_MODE, MODIFY_MODE, ENCRYPTION_MODE, DECRYPTION_MODE);
+END PACKAGE state_type_pkg;
