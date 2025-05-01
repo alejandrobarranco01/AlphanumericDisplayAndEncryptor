@@ -7,7 +7,7 @@ This project is an **Alphanumeric Display and Encryption System** implemented on
 ## Author
 
 _Alejandro Barranco-Leyte_ <br>
-<img src="/img/ale.jpeg" alt="Alejandro Barranco-Leyte" width="40%" />
+<img src="https://github.com/user-attachments/assets/6c5a6929-0aef-428b-bd00-da234fc0ca89" alt="Alejandro Barranco-Leyte" width="40%" />
 
 ## Features
 
