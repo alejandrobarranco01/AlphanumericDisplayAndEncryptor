@@ -2,6 +2,13 @@
 
 This project is an **Alphanumeric Display and Encryption System** implemented on the DE10-Standard FPGA development board. The system allows users to input, modify, encrypt, and decrypt alphanumeric characters displayed across six seven-segment displays using VHDL and Verilog. Key functionalities include mode switching, ASCII input via switches, Caesar Cipher encryption/decryption, and real-time display control.
 
+[![Project Demonstration Video](https://img.youtube.com/vi/GwkTFEYAJBE/0.jpg)](https://youtu.be/GwkTFEYAJBE)
+
+## Author
+
+_Alejandro Barranco-Leyte_ <br>
+<img src="/img/ale.jpeg" alt="Alejandro Barranco-Leyte" width="40%" />
+
 ## Features
 
 ### **Core Functionality**
